@@ -1,18 +1,27 @@
 "use client";
 
-import { landingContent } from "@/content/landing";
+import { content } from "@/content/landing";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { motion } from "framer-motion";
 import { TrendingUp, TrendingDown } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function Results() {
+    const { language } = useLanguage();
+    const landingContent = content[language];
     return (
-        <section id="case-studies" className="py-24 relative overflow-hidden">
+        <section id="results" className="py-24 relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
 
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
 
                     <div className="w-full lg:w-1/2">
+                        <div className="flex items-center gap-2 mb-4">
+                            <div className="w-12 h-[1px] bg-[#00ff66] opacity-50"></div>
+                            <span className="text-[#00ff66] font-medium tracking-wider uppercase text-sm">
+                                {landingContent.results.badge}
+                            </span>
+                        </div>
                         <h2 className="text-3xl md:text-5xl font-bold font-outfit mb-6 leading-tight">
                             {landingContent.results.title}
                         </h2>

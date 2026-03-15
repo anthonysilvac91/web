@@ -5,10 +5,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "./Button";
 import { cn } from "@/lib/utils";
-import { landingContent } from "@/content/landing";
+import { content } from "@/content/landing";
 import { trackConversion } from "@/lib/tracking";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 // Define the validation schema
 const contactSchema = z.object({
@@ -22,6 +23,9 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 export function ContactForm({ className }: { className?: string }) {
+    const { language } = useLanguage();
+    const landingContent = content[language];
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
@@ -163,7 +167,7 @@ export function ContactForm({ className }: { className?: string }) {
                 )}
             </Button>
             <p className="text-center text-xs text-gray-500 mt-2">
-                Your information is secure. We never sell your data to third parties.
+                {landingContent.contact.disclaimer}
             </p>
         </form>
     );

@@ -1,16 +1,22 @@
 "use client";
 
-import { landingContent } from "@/content/landing";
+import { content } from "@/content/landing";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function SocialProof() {
-    const logos = ["Google", "AWS", "Microsoft", "HubSpot", "Salesforce", "Shopify"];
+    const { language } = useLanguage();
+    const landingContent = content[language];
+    const logos = landingContent.socialProof.logos;
 
     return (
         <section className="py-12 border-y border-white/5 bg-[#0b0f19]/50 relative overflow-hidden">
-            <div className="container mx-auto px-6">
-                <p className="text-center text-sm font-medium text-gray-400 mb-8 font-outfit">
+            <div className="container mx-auto px-6 text-center">
+                <h3 className="text-xl md:text-2xl font-bold font-outfit text-white mb-2">
                     {landingContent.socialProof.text}
+                </h3>
+                <p className="text-sm font-medium text-gray-400 mb-8 font-outfit">
+                    {landingContent.socialProof.description}
                 </p>
 
                 {/* Infinite marquee effect container */}

@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { Hexagon } from "lucide-react";
-import { landingContent } from "@/content/landing";
+import { content } from "@/content/landing";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function Footer() {
+    const { language } = useLanguage();
+    const landingContent = content[language];
     const currentYear = new Date().getFullYear();
 
     return (
@@ -48,9 +53,9 @@ export function Footer() {
             <div className="container mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 relative z-10">
                 <p>© {currentYear} CoreMetrics Media. All rights reserved.</p>
                 <div className="flex gap-4">
-                    <Link href="#" className="hover:text-white transition-colors">Twitter X</Link>
-                    <Link href="#" className="hover:text-white transition-colors">LinkedIn</Link>
-                    <Link href="#" className="hover:text-white transition-colors">GitHub</Link>
+                    {landingContent.footer.social.map(network => (
+                        <Link key={network} href="#" className="hover:text-white transition-colors">{network}</Link>
+                    ))}
                 </div>
             </div>
         </footer>

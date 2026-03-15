@@ -1,21 +1,24 @@
 "use client";
 
 import { GlassCard } from "@/components/ui/GlassCard";
-import { landingContent } from "@/content/landing";
+import { content } from "@/content/landing";
 import { motion } from "framer-motion";
-import { BarChart3, Users, TrendingUp, Search, MousePointerClick, Zap } from "lucide-react";
+import { BarChart3, Users, Search, MousePointerClick, Zap, Bot } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 // Icon map to render dynamic icons from string names in our content
 const iconMap = {
     BarChart3,
     Users,
-    TrendingUp,
     Search,
     MousePointerClick,
     Zap,
+    Bot,
 };
 
 export function Services() {
+    const { language } = useLanguage();
+    const landingContent = content[language];
     const container = {
         hidden: { opacity: 0 },
         show: {
