@@ -2,12 +2,12 @@ export const content = {
     en: {
         hero: {
             badge: "AI-Powered Digital Growth Agency",
-            titleStart: "Grow Faster with",
-            titleHighlight: "Data-Driven",
-            titleEnd: "Marketing & AI Automation",
-            description: "We help companies scale through performance marketing, high-converting websites, and intelligent automation powered by AI.",
-            primaryCta: "Get Your Free Growth Audit",
-            secondaryCta: "Explore Our Services",
+            titleStart: "We turn traffic into",
+            titleHighlight: "revenue",
+            titleEnd: "with AI and data-driven marketing",
+            description: "We build websites, campaigns and automation systems to grow your business",
+            primaryCta: "Get a free audit",
+            secondaryCta: "See how we work",
             trustLine: "Trusted by growing brands and modern startups."
         },
         socialProof: {
@@ -199,12 +199,12 @@ export const content = {
     es: {
         hero: {
             badge: "Agencia de Crecimiento Digital Impulsada por IA",
-            titleStart: "Crece Más Rápido con",
-            titleHighlight: "Marketing Basado en Datos",
-            titleEnd: "y Automatización con IA",
-            description: "Ayudamos a las empresas a escalar mediante marketing de performance, sitios web de alta conversión y automatización inteligente impulsada por IA.",
-            primaryCta: "Obtén tu Auditoría de Crecimiento Gratis",
-            secondaryCta: "Explorar Nuestros Servicios",
+            titleStart: "Convertimos tráfico en",
+            titleHighlight: "ventas",
+            titleEnd: "con AI y marketing basado en datos",
+            description: "Desarrollamos webs, campañas y automatizaciones para hacer crecer tu negocio digital",
+            primaryCta: "Solicitar evaluación gratuita",
+            secondaryCta: "Ver cómo trabajamos",
             trustLine: "Respaldado por marcas en crecimiento y startups modernas."
         },
         socialProof: {

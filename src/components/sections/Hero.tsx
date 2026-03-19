@@ -10,7 +10,7 @@ export function Hero() {
     const { language } = useLanguage();
     const landingContent = content[language];
     return (
-        <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 overflow-hidden">
+        <section id="home" className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#00ff66]/10 blur-[150px] rounded-full pointer-events-none" />
 
@@ -74,7 +74,7 @@ export function Hero() {
                         className="w-full sm:w-auto"
                         onClick={() => {
                             trackEvent("hero_secondary_cta_click");
-                            document.getElementById("platform")?.scrollIntoView({ behavior: "smooth" });
+                            document.getElementById("method")?.scrollIntoView({ behavior: "smooth" });
                         }}
                     >
                         {landingContent.hero.secondaryCta}

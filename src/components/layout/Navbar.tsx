@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { content } from "@/content/landing";
 import { Button } from "@/components/ui/Button";
-import { Menu, X, Hexagon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { trackEvent } from "@/lib/tracking";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
@@ -35,34 +36,34 @@ export function Navbar() {
                 {/* Logo */}
                 <Link
                     href="/"
-                    className="flex items-center gap-2 group"
+                    className="flex items-center group"
                     onClick={() => trackEvent("navbar_logo_click")}
                 >
-                    <div className="relative flex items-center justify-center w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] group-hover:border-[#00ff66]/50 transition-colors">
-                        <Hexagon className="text-[#00ff66] w-6 h-6" />
-                        <div className="absolute inset-0 bg-[#00ff66] blur-xl opacity-20"></div>
-                    </div>
-                    <span className="font-outfit font-bold text-xl tracking-tight">
-                        CoreMetrics<span className="text-[#00ff66]">.</span>
-                    </span>
+                    <Image 
+                        src="/CoreMetrics_horizontal_v2.png" 
+                        alt="CoreMetrics Media Logo" 
+                        width={200} 
+                        height={45} 
+                        className="h-10 w-auto object-contain transition-opacity group-hover:opacity-80"
+                        priority 
+                    />
                 </Link>
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8">
-                    {['Services', 'Results', 'Case Studies', 'About', 'Contact'].map((link) => {
-                        const esTranslations: Record<string, string> = {
-                            'Services': 'Servicios',
-                            'Results': 'Resultados',
-                            'Case Studies': 'Casos de Estudio',
-                            'About': 'Nosotros',
-                            'Contact': 'Contacto'
-                        };
-                        const translatedLink = language === 'es' ? esTranslations[link] : link;
+                    {[
+                        { id: 'home', en: 'Home', es: 'Inicio' },
+                        { id: 'services', en: 'Services', es: 'Servicios' },
+                        { id: 'method', en: 'Method', es: 'Método' },
+                        { id: 'results', en: 'Results', es: 'Resultados' },
+                        { id: 'contact', en: 'Contact', es: 'Contacto' },
+                    ].map((link) => {
+                        const translatedLink = language === 'es' ? link.es : link.en;
 
                         return (
                             <Link
-                                key={link}
-                                href={`#${link.toLowerCase().replace(' ', '-')}`}
+                                key={link.id}
+                                href={`#${link.id}`}
                                 className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
                             >
                                 {translatedLink}
@@ -112,20 +113,19 @@ export function Navbar() {
             {/* Mobile Nav */}
             {mobileMenuOpen && (
                 <div className="md:hidden glass-panel absolute top-full left-0 w-full p-6 flex flex-col gap-4 border-t-0 rounded-b-2xl">
-                    {['Services', 'Results', 'Case Studies', 'About', 'Contact'].map((link) => {
-                        const esTranslations: Record<string, string> = {
-                            'Services': 'Servicios',
-                            'Results': 'Resultados',
-                            'Case Studies': 'Casos de Estudio',
-                            'About': 'Nosotros',
-                            'Contact': 'Contacto'
-                        };
-                        const translatedLink = language === 'es' ? esTranslations[link] : link;
+                    {[
+                        { id: 'home', en: 'Home', es: 'Inicio' },
+                        { id: 'services', en: 'Services', es: 'Servicios' },
+                        { id: 'method', en: 'Method', es: 'Método' },
+                        { id: 'results', en: 'Results', es: 'Resultados' },
+                        { id: 'contact', en: 'Contact', es: 'Contacto' },
+                    ].map((link) => {
+                        const translatedLink = language === 'es' ? link.es : link.en;
 
                         return (
                             <Link
-                                key={link}
-                                href={`#${link.toLowerCase().replace(' ', '-')}`}
+                                key={link.id}
+                                href={`#${link.id}`}
                                 className="text-base font-medium text-gray-300 hover:text-white w-full py-2 border-b border-white/5"
                                 onClick={() => setMobileMenuOpen(false)}
                             >

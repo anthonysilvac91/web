@@ -21,12 +21,11 @@ export default function Home() {
       <SocialProof />
       <Services />
       <Divider />
-      <Methodology />
-      <Divider />
-      <DataStorytelling />
-      <Divider />
       <Results />
       <Divider />
+      <Methodology />
+      <Divider />
+      {/* <DataStorytelling /> Ocultado a petición */}
       <CaseStudies />
       <WhyChooseUs />
       <Divider />

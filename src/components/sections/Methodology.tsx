@@ -11,7 +11,7 @@ export function Methodology() {
     const { language } = useLanguage();
     const landingContent = content[language];
     return (
-        <section id="process" className="py-24 relative overflow-hidden bg-[#0a0e14]">
+        <section id="method" className="py-24 relative overflow-hidden bg-[#0a0e14]">
             {/* Glow effects */}
             <div className="absolute top-1/2 -left-[20%] w-[500px] h-[500px] bg-[#00ff66]/5 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute top-1/2 -right-[20%] w-[500px] h-[500px] bg-[#10b981]/5 blur-[120px] rounded-full pointer-events-none" />
